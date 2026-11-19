@@ -1,0 +1,4 @@
+[2.02s] baseline for 30s: starrocks-be-0=360 starrocks-be-1=360 starrocks-be-2=360 
+[38.10s] ADD: docker compose up -d starrocks-be-3
+[45.68s] starrocks-be-3 alive
+[51.99s] first replica on starrocks-be-3

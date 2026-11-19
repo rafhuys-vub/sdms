@@ -1,0 +1,81 @@
+# StarRocks shared-nothing cluster: 1 FE + 3 BEs, plus a 4th BE that is only
+# started for the scale-out experiment (profile "scaleout").
+#
+# Follows the official StarRocks compose file
+# (github.com/StarRocks/demo/blob/master/deploy/docker-compose/docker-compose-3BE.yml):
+# the image entrypoints register each node with the FE themselves —
+# be_entrypoint.sh runs `ALTER SYSTEM ADD BACKEND "<hostname>:9050"` before
+# starting the BE, so starting a BE container == adding it to the cluster.
+
+x-be: &be
+  image: starrocks/be-ubuntu:${SR_VERSION:-3.3.22}
+  command: ["/opt/starrocks/be_entrypoint.sh", "starrocks-fe"]
+  environment:
+    HOST_TYPE: FQDN          # register by hostname instead of container IP
+  volumes:
+    - ./conf/be.conf:/opt/starrocks/be/conf/be.conf:ro
+  depends_on:
+    starrocks-fe:
+      condition: service_healthy
+  mem_limit: 4g
+
+services:
+  starrocks-fe:
+    image: starrocks/fe-ubuntu:${SR_VERSION:-3.3.22}
+    hostname: starrocks-fe
+    container_name: starrocks-fe
+    command: ["/opt/starrocks/fe_entrypoint.sh", "starrocks-fe"]
+    environment:
+      HOST_TYPE: FQDN
+    ports:
+      - "127.0.0.1:9030:9030"   # MySQL protocol, accessible locally (e.g. DBeaver)
+      - "127.0.0.1:8030:8030"   # web UI / HTTP API
+    volumes:
+      - ./conf/fe.conf:/opt/starrocks/fe/conf/fe.conf:ro
+      - fe-meta:/opt/starrocks/fe/meta
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -h127.0.0.1 -P9030 -uroot -e 'SHOW FRONTENDS' | grep -q LEADER"]
+      interval: 5s
+      retries: 60
+    mem_limit: 3g
+
+  starrocks-be-0:
+    <<: *be
+    hostname: starrocks-be-0
+    container_name: starrocks-be-0
+    volumes:
+      - ./conf/be.conf:/opt/starrocks/be/conf/be.conf:ro
+      - be0-storage:/opt/starrocks/be/storage
+
+  starrocks-be-1:
+    <<: *be
+    hostname: starrocks-be-1
+    container_name: starrocks-be-1
+    volumes:
+      - ./conf/be.conf:/opt/starrocks/be/conf/be.conf:ro
+      - be1-storage:/opt/starrocks/be/storage
+
+  starrocks-be-2:
+    <<: *be
+    hostname: starrocks-be-2
+    container_name: starrocks-be-2
+    volumes:
+      - ./conf/be.conf:/opt/starrocks/be/conf/be.conf:ro
+      - be2-storage:/opt/starrocks/be/storage
+
+  # The node that is added during E5.  `docker compose up -d starrocks-be-3`
+  starrocks-be-3:
+    <<: *be
+    profiles: ["scaleout"]
+    hostname: starrocks-be-3
+    container_name: starrocks-be-3
+    volumes:
+      - ./conf/be.conf:/opt/starrocks/be/conf/be.conf:ro
+      - be3-storage:/opt/starrocks/be/storage
+
+volumes:
+  fe-meta:
+  be0-storage:
+  be1-storage:
+  be2-storage:
+  be3-storage:
