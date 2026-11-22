@@ -1,0 +1,5 @@
+[1.70s] baseline for 30s: starrocks-be-0=360 starrocks-be-1=360 starrocks-be-2=360 starrocks-be-3=0
+[32.14s] ADD: docker compose --profile scaleout up -d --no-deps starrocks-be-3
+[44.37s] starrocks-be-3 alive
+[56.36s] first replica on starrocks-be-3
+[204.25s] converged (no change since 127.22s)

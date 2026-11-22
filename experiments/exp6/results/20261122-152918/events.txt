@@ -1,0 +1,33 @@
+[0.29s] start experiment with backends: {'10003': {'id': '10003', 'host': 'starrocks-be-0', 'alive': True}, 'starrocks-be-0': {'id': '10003', 'host': 'starrocks-be-0', 'alive': True}, '10002': {'id': '10002', 'host': 'starrocks-be-1', 'alive': True}, 'starrocks-be-1': {'id': '10002', 'host': 'starrocks-be-1', 'alive': True}, '10001': {'id': '10001', 'host': 'starrocks-be-2', 'alive': True}, 'starrocks-be-2': {'id': '10001', 'host': 'starrocks-be-2', 'alive': True}, '11785': {'id': '11785', 'host': 'starrocks-be-3', 'alive': True}, 'starrocks-be-3': {'id': '11785', 'host': 'starrocks-be-3', 'alive': True}}
+[7.15s] docker compose kill starrocks-be-3
+[29.26s] FE marked starrocks-be-3 dead after 29.25940086200717
+[35.12s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[40.87s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[46.73s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[52.56s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[58.57s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[64.27s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[70.23s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[76.10s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[81.92s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[87.91s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[94.08s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[99.82s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[105.56s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[111.77s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[117.79s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[123.67s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[129.42s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[135.14s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[141.41s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[147.32s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[153.35s] alive replicas 810/1080, unhealthy=270, scheduler=0/0
+[159.22s] repair activity observed
+[159.22s] alive replicas 833/1080, unhealthy=247, scheduler=262/0
+[165.06s] repair activity observed
+[165.06s] alive replicas 888/1080, unhealthy=192, scheduler=197/10
+[171.23s] repair activity observed
+[171.23s] alive replicas 952/1080, unhealthy=128, scheduler=141/0
+[177.33s] repair activity observed
+[177.33s] alive replicas 1018/1080, unhealthy=62, scheduler=64/11
+[183.08s] fully re-replicated

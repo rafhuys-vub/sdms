@@ -1,0 +1,29 @@
+date: 2026-11-22T15:41:30.317662+01:00
+experiment: E5 scale-out; add one BE and wait for replica redistribution
+--- table
+events	CREATE TABLE `events` (\n  `event_date` date NOT NULL COMMENT "",\n  `user_id` bigint(20) NOT NULL COMMENT "",\n  `event_id` bigint(20) NOT NULL COMMENT "",\n  `category` varchar(16) NOT NULL COMMENT "",\n  `amount` decimal(12, 2) NOT NULL COMMENT "",\n  `payload` varchar(128) NOT NULL COMMENT ""\n) ENGINE=OLAP \nDUPLICATE KEY(`event_date`, `user_id`)\nPARTITION BY RANGE(`event_date`)\n(PARTITION p20240101 VALUES [("2024-01-01"), ("2024-01-02")),\nPARTITION p20240102 VALUES [("2024-01-02"), ("2024-01-03")),\nPARTITION p20240103 VALUES [("2024-01-03"), ("2024-01-04")),\nPARTITION p20240104 VALUES [("2024-01-04"), ("2024-01-05")),\nPARTITION p20240105 VALUES [("2024-01-05"), ("2024-01-06")),\nPARTITION p20240106 VALUES [("2024-01-06"), ("2024-01-07")),\nPARTITION p20240107 VALUES [("2024-01-07"), ("2024-01-08")),\nPARTITION p20240108 VALUES [("2024-01-08"), ("2024-01-09")),\nPARTITION p20240109 VALUES [("2024-01-09"), ("2024-01-10")),\nPARTITION p20240110 VALUES [("2024-01-10"), ("2024-01-11")),\nPARTITION p20240111 VALUES [("2024-01-11"), ("2024-01-12")),\nPARTITION p20240112 VALUES [("2024-01-12"), ("2024-01-13")),\nPARTITION p20240113 VALUES [("2024-01-13"), ("2024-01-14")),\nPARTITION p20240114 VALUES [("2024-01-14"), ("2024-01-15")),\nPARTITION p20240115 VALUES [("2024-01-15"), ("2024-01-16")),\nPARTITION p20240116 VALUES [("2024-01-16"), ("2024-01-17")),\nPARTITION p20240117 VALUES [("2024-01-17"), ("2024-01-18")),\nPARTITION p20240118 VALUES [("2024-01-18"), ("2024-01-19")),\nPARTITION p20240119 VALUES [("2024-01-19"), ("2024-01-20")),\nPARTITION p20240120 VALUES [("2024-01-20"), ("2024-01-21")),\nPARTITION p20240121 VALUES [("2024-01-21"), ("2024-01-22")),\nPARTITION p20240122 VALUES [("2024-01-22"), ("2024-01-23")),\nPARTITION p20240123 VALUES [("2024-01-23"), ("2024-01-24")),\nPARTITION p20240124 VALUES [("2024-01-24"), ("2024-01-25")),\nPARTITION p20240125 VALUES [("2024-01-25"), ("2024-01-26")),\nPARTITION p20240126 VALUES [("2024-01-26"), ("2024-01-27")),\nPARTITION p20240127 VALUES [("2024-01-27"), ("2024-01-28")),\nPARTITION p20240128 VALUES [("2024-01-28"), ("2024-01-29")),\nPARTITION p20240129 VALUES [("2024-01-29"), ("2024-01-30")),\nPARTITION p20240130 VALUES [("2024-01-30"), ("2024-01-31")))\nDISTRIBUTED BY HASH(`user_id`) BUCKETS 12 \nPROPERTIES (\n"compression" = "LZ4",\n"fast_schema_evolution" = "true",\n"replicated_storage" = "true",\n"replication_num" = "3"\n);
+--- partitions
+30
+--- scheduler config
+tablet_sched_always_force_decommission_replica	[]	false	boolean	true	
+tablet_sched_balance_load_disk_safe_threshold	[balance_load_disk_safe_threshold]	0.5	double	true	
+tablet_sched_balance_load_score_threshold	[balance_load_score_threshold]	0.1	double	true	
+tablet_sched_be_down_tolerate_time_s	[]	30	long	true	
+tablet_sched_checker_interval_seconds	[]	20	int	false	
+tablet_sched_colocate_balance_high_prio_backends	[]	[]	long[]	true	
+tablet_sched_colocate_balance_wait_system_stable_time_s	[]	900	long	true	
+tablet_sched_colocate_be_down_tolerate_time_s	[]	43200	long	true	
+tablet_sched_consecutive_full_clone_delay_sec	[]	180	long	true	
+tablet_sched_disable_balance	[disable_balance]	false	boolean	true	
+tablet_sched_disable_colocate_balance	[disable_colocate_balance]	false	boolean	true	
+tablet_sched_disable_colocate_overall_balance	[]	true	boolean	true	
+tablet_sched_max_balancing_tablets	[max_balancing_tablets]	500	int	true	
+tablet_sched_max_clone_task_timeout_sec	[max_clone_task_timeout_sec]	7200	long	true	
+tablet_sched_max_migration_task_sent_once	[]	1000	int	true	
+tablet_sched_max_not_being_scheduled_interval_ms	[]	900000	long	true	
+tablet_sched_max_scheduling_tablets	[max_scheduling_tablets]	10000	int	true	
+tablet_sched_min_clone_task_timeout_sec	[min_clone_task_timeout_sec]	180	long	true	
+tablet_sched_num_based_balance_threshold_ratio	[]	0.5	double	true	
+tablet_sched_repair_delay_factor_second	[tablet_repair_delay_factor_second]	60	long	true	
+tablet_sched_slot_num_per_path	[schedule_slot_num_per_path]	8	int	true	
+tablet_sched_storage_cooldown_second	[storage_cooldown_second]	-1	long	true

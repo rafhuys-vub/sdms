@@ -10,7 +10,10 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
+ROOT = Path(__file__).resolve().parent
 run = Path(sys.argv[1])
+if not run.is_absolute():
+    run = ROOT / "results" / run
 rows = lambda name: list(csv.DictReader(open(run / name))) if (run / name).exists() else []
 
 t_add = next(float(l.split("s]")[0][1:]) for l in open(run / "events.txt") if "ADD" in l)

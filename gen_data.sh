@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Create e5.events and fill it with synthetic rows, generated inside StarRocks
-# (INSERT ... SELECT FROM generate_series), so no data files are needed.
+# (INSERT ... SELECT FROM generate_series).
 #
 #   ROWS=10000000 DAYS=30 BUCKETS=12 SKEW=0 ./gen_data.sh
 #
@@ -9,8 +9,6 @@
 #   BUCKETS  hash buckets (= tablets) per partition            (default 12)
 #   REPLICAS replication_num                                   (default 3)
 #   USERS    distinct user_id values                           (default 1M)
-#   SKEW     0 = uniform user_id, s > 0 = Zipf(s) over USERS   (default 0)
-#            (the bucket key is user_id, so skew -> unequal tablet sizes)
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -19,7 +17,7 @@ DAYS=${DAYS:-30}
 BUCKETS=${BUCKETS:-12}
 REPLICAS=${REPLICAS:-3}
 USERS=${USERS:-1000000}
-SKEW=${SKEW:-0}
+SKEW=0
 
 sql() { docker compose exec -T starrocks-fe mysql -h127.0.0.1 -P9030 -uroot "$@"; }
 
@@ -31,14 +29,7 @@ u() { echo "((CAST(murmur_hash3_32(concat('$1', CAST(g AS VARCHAR))) AS DOUBLE) 
 if [[ "$SKEW" == "0" ]]; then
   USER_EXPR="CAST(floor($(u user) * ${USERS}) + 1 AS BIGINT)"
 else
-  # inverse-CDF sampling of a bounded power law P(k) ~ k^-s, k in 1..USERS
-  # (s = 1 needs the logarithmic form)
-  if [[ "$SKEW" == "1" || "$SKEW" == "1.0" ]]; then
-    RANK="floor(exp($(u user) * ln(${USERS} + 1)))"
-  else
-    RANK="floor(pow((pow(${USERS} + 1, 1 - ${SKEW}) - 1) * $(u user) + 1, 1 / (1 - ${SKEW})))"
-  fi
-  USER_EXPR="CAST(least(greatest(${RANK}, 1), ${USERS}) AS BIGINT)"
+  echo TODO skew 
 fi
 
 echo "creating e5.events: ${DAYS} partitions x ${BUCKETS} buckets x ${REPLICAS} replicas"
@@ -64,7 +55,6 @@ SQL
 echo "generating ${ROWS} rows (users=${USERS}, skew=${SKEW}) ..."
 start=$(date +%s)
 sql <<SQL
-SET query_timeout = 7200;
 INSERT INTO e5.events
 SELECT
     date_add('2024-01-01', CAST(floor($(u day) * ${DAYS}) AS INT)),

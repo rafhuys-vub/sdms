@@ -1,1 +1,7 @@
-results/*smoke*/
+# Local environment and secrets
+.env
+.env.*
+.venv/
+
+# Editors / OS
+.vscode/
