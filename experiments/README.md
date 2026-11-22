@@ -1,5 +1,11 @@
 # Experiments
 
+** Clone the Repository **
+git clone https://github.com/rafhuys-vub/sdms
+
+** Start the StarRocks Cluster
+docker compose up -d
+
 **E1 – Bucket count / tablet granularity vs performance**
 
 1. Create identical datasets with 1.5M rows using nine hash-bucket configurations: 1, 3, 6, 12, 24, 48, 96, 192, and 384 buckets.
