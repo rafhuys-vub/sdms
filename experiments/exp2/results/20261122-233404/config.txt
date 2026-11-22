@@ -1,0 +1,10 @@
+Experiment: E2 - HASH vs RANDOM under data skew
+StarRocks database: e2
+Rows: 1500000
+Buckets: 24
+Replication factor: 3
+Warmups: 2
+Measured runs: 10
+Strategies: HASH(region_id), RANDOM
+Region distribution: 70%, 15%, 10%, 5%
+P95: inclusive percentile interpolation

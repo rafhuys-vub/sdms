@@ -1,0 +1,27 @@
+Experiment: E2 - HASH vs RANDOM under data skew
+
+StarRocks database: e2
+
+Rows: 1500000
+Buckets: 24
+Replication factor: 3
+
+Warmups: 2
+Measured runs: 10
+
+Strategies:
+    HASH(region_id)
+    RANDOM
+
+Region distribution:
+    Region 1: 70%
+    Region 2: 15%
+    Region 3: 10%
+    Region 4: 5%
+
+P95:
+    Inclusive percentile interpolation
+
+Query latency:
+    Client-observed latency, including Docker/MySQL
+    client startup overhead.

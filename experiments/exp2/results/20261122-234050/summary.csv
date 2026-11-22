@@ -1,0 +1,9 @@
+strategy,query,runs,median_ms,p95_ms,min_ms,max_ms
+hash,full_scan,10,378.02,396.56,353.975,401.85
+hash,dominant_region,10,363.81,390.617,344.043,403.703
+hash,rare_region,10,369.598,383.818,340.92,386.721
+hash,group_by_region,10,386.633,390.534,369.943,391.259
+random,full_scan,10,373.651,394.504,356.254,397.426
+random,dominant_region,10,380.276,414.035,370.63,436.27
+random,rare_region,10,377.762,394.065,357.062,398.852
+random,group_by_region,10,374.755,385.649,371.324,386.113

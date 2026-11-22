@@ -1,0 +1,5 @@
+[2026-11-22T23:38:50] Starting E2 - HASH vs RANDOM under data skew
+[2026-11-22T23:38:50] Checking StarRocks cluster
+[2026-11-22T23:38:50] Cluster ready: 3 alive backends
+[2026-11-22T23:38:50] Creating E2 database and source table
+[2026-11-22T23:38:51] Generating 1,500,000 deterministic skewed rows

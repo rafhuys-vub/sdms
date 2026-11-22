@@ -1,0 +1,7 @@
+strategy,table,logical_tablets,total_replicas,nonempty_tablets,backend_id,replica_count
+hash,events_hash,24,72,4,10001,24
+hash,events_hash,24,72,4,10002,24
+hash,events_hash,24,72,4,10003,24
+random,events_random,24,72,24,10001,24
+random,events_random,24,72,24,10002,24
+random,events_random,24,72,24,10003,24

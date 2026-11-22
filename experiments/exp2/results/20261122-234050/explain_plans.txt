@@ -1,0 +1,140 @@
+
+======================================================================
+HASH - dominant_region
+======================================================================
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_hash
+     PREAGGREGATION: ON
+     PREDICATES: 3: region_id = 1
+     partitions=1/1
+     rollup: events_hash
+     tabletRatio=1/24
+     tabletList=19318
+     cardinality=375000
+     avgRowSize=12.0
+
+======================================================================
+HASH - rare_region
+======================================================================
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_hash
+     PREAGGREGATION: ON
+     PREDICATES: 3: region_id = 4
+     partitions=1/1
+     rollup: events_hash
+     tabletRatio=1/24
+     tabletList=19358
+     cardinality=375000
+     avgRowSize=12.0
+
+======================================================================
+RANDOM - dominant_region
+======================================================================
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 
+  |  
+  3:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 03
+    UNPARTITIONED
+
+  2:AGGREGATE (update serialize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_random
+     PREAGGREGATION: ON
+     PREDICATES: 3: region_id = 1
+     partitions=1/1
+     rollup: events_random
+     tabletRatio=24/24
+     tabletList=19417,19421,19425,19429,19433,19437,19441,19445,19449,19453 ...
+     cardinality=750000
+     avgRowSize=2.0
+
+======================================================================
+RANDOM - rare_region
+======================================================================
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 
+  |  
+  3:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 03
+    UNPARTITIONED
+
+  2:AGGREGATE (update serialize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_random
+     PREAGGREGATION: ON
+     PREDICATES: 3: region_id = 4
+     partitions=1/1
+     rollup: events_random
+     tabletRatio=24/24
+     tabletList=19417,19421,19425,19429,19433,19437,19441,19445,19449,19453 ...
+     cardinality=750000
+     avgRowSize=2.0

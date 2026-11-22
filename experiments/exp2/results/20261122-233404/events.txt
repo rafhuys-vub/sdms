@@ -1,0 +1,4 @@
+[2026-11-22T23:34:04] Starting E2 - HASH vs RANDOM under data skew
+[2026-11-22T23:34:05] Cluster ready: 3 alive backends
+[2026-11-22T23:34:05] Creating E2 database and source table
+[2026-11-22T23:34:06] Generating 1,500,000 deterministic skewed rows
