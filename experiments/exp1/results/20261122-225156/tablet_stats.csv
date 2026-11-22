@@ -1,0 +1,4 @@
+bucket_count,table,logical_tablets,total_replicas,backend_id,replica_count,percentage
+1,events_b1,1,3,10001,1,33.33 %
+1,events_b1,1,3,10002,1,33.33 %
+1,events_b1,1,3,10003,1,33.33 %

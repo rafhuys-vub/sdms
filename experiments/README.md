@@ -1,5 +1,14 @@
 # Experiments
 
+**E1 – Bucket count / tablet granularity vs performance**
+
+1. Create identical datasets with 1.5M rows using nine hash-bucket configurations: 1, 3, 6, 12, 24, 48, 96, 192, and 384 buckets.
+   Keep the schema, distribution key, replication factor, and cluster configuration constant.
+2. Measure data-loading time for each configuration.
+3. Compare full-scan aggregation and point-query latency using warm-up executions and repeated measurements.
+4. Record EXPLAIN plans, tablet counts, tablet distribution across BEs, and available storage/segment statistics.
+5. Calculate median and p95 query latency and analyze the relationship between bucket count, tablet granularity, and performance.
+
 **E5 – Elastic scale-out and rebalancing**
 1. Load data on 3 BEs.
 2. Add a 4th BE.

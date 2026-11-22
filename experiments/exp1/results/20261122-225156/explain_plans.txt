@@ -1,0 +1,55 @@
+
+
+===========================================================================
+TABLE: events_b1
+BUCKETS: 1
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  colocate exec groups: ExecGroup{groupId=0, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  1:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b1
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b1
+     tabletRatio=1/1
+     tabletList=15008
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b1
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b1
+     tabletRatio=1/1
+     tabletList=15008
+     cardinality=750000
+     avgRowSize=2.0

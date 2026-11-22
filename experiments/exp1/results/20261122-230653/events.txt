@@ -1,0 +1,359 @@
+[2026-11-22T23:06:53] Starting E1 - Bucket count experiment
+[2026-11-22T23:06:53] Checking Docker Compose environment
+[2026-11-22T23:06:53] Active backends: ['starrocks-be-0', 'starrocks-be-1', 'starrocks-be-2']
+[2026-11-22T23:06:53] Validating source dataset
+[2026-11-22T23:06:53] Source dataset validated: 1,500,000 rows
+[2026-11-22T23:06:53] Starting configuration: 1 buckets
+[2026-11-22T23:06:53] Creating events_b1 with 1 buckets
+[2026-11-22T23:06:54] Loading data into events_b1
+[2026-11-22T23:06:55] INSERT completed for events_b1 in 1.194 seconds
+[2026-11-22T23:06:55] Load verification passed for events_b1: 1,500,000 rows
+[2026-11-22T23:06:55] Waiting for replica consistency for events_b1 (timeout: 180s)
+[2026-11-22T23:06:56] Replica consistency confirmed for events_b1: 1 logical tablets, 3 physical replicas, 0.4s
+[2026-11-22T23:06:57] Data validation passed for events_b1
+[2026-11-22T23:06:57] EXPLAIN plans collected for events_b1
+[2026-11-22T23:06:57] Starting full_scan benchmarks for events_b1
+[2026-11-22T23:06:58] Warm-up full_scan: 1/2, 426.169 ms
+[2026-11-22T23:06:58] Warm-up full_scan: 2/2, 401.049 ms
+[2026-11-22T23:06:59] events_b1 full_scan run=1/10, latency=432.907 ms
+[2026-11-22T23:06:59] events_b1 full_scan run=2/10, latency=401.433 ms
+[2026-11-22T23:06:59] events_b1 full_scan run=3/10, latency=401.008 ms
+[2026-11-22T23:07:00] events_b1 full_scan run=4/10, latency=418.474 ms
+[2026-11-22T23:07:00] events_b1 full_scan run=5/10, latency=404.094 ms
+[2026-11-22T23:07:01] events_b1 full_scan run=6/10, latency=417.618 ms
+[2026-11-22T23:07:01] events_b1 full_scan run=7/10, latency=422.783 ms
+[2026-11-22T23:07:01] events_b1 full_scan run=8/10, latency=416.858 ms
+[2026-11-22T23:07:02] events_b1 full_scan run=9/10, latency=406.003 ms
+[2026-11-22T23:07:02] events_b1 full_scan run=10/10, latency=418.814 ms
+[2026-11-22T23:07:02] Starting point_query benchmarks for events_b1
+[2026-11-22T23:07:03] Warm-up point_query: 1/2, 371.913 ms
+[2026-11-22T23:07:03] Warm-up point_query: 2/2, 382.345 ms
+[2026-11-22T23:07:03] events_b1 point_query run=1/10, latency=386.252 ms
+[2026-11-22T23:07:04] events_b1 point_query run=2/10, latency=355.466 ms
+[2026-11-22T23:07:04] events_b1 point_query run=3/10, latency=355.029 ms
+[2026-11-22T23:07:04] events_b1 point_query run=4/10, latency=371.544 ms
+[2026-11-22T23:07:05] events_b1 point_query run=5/10, latency=356.544 ms
+[2026-11-22T23:07:05] events_b1 point_query run=6/10, latency=355.131 ms
+[2026-11-22T23:07:06] events_b1 point_query run=7/10, latency=354.187 ms
+[2026-11-22T23:07:06] events_b1 point_query run=8/10, latency=402.502 ms
+[2026-11-22T23:07:06] events_b1 point_query run=9/10, latency=358.052 ms
+[2026-11-22T23:07:07] events_b1 point_query run=10/10, latency=389.135 ms
+[2026-11-22T23:07:07] Collecting tablet statistics for events_b1
+[2026-11-22T23:07:08] events_b1: 1 logical tablets, 3 physical replicas
+[2026-11-22T23:07:08] Detailed tablet metadata and replica health saved for events_b1
+[2026-11-22T23:07:08] Completed configuration: 1 buckets
+[2026-11-22T23:07:08] Starting configuration: 3 buckets
+[2026-11-22T23:07:08] Creating events_b3 with 3 buckets
+[2026-11-22T23:07:08] Loading data into events_b3
+[2026-11-22T23:07:09] INSERT completed for events_b3 in 1.121 seconds
+[2026-11-22T23:07:10] Load verification passed for events_b3: 1,500,000 rows
+[2026-11-22T23:07:10] Waiting for replica consistency for events_b3 (timeout: 180s)
+[2026-11-22T23:07:10] Replica consistency confirmed for events_b3: 3 logical tablets, 9 physical replicas, 0.3s
+[2026-11-22T23:07:11] Data validation passed for events_b3
+[2026-11-22T23:07:11] EXPLAIN plans collected for events_b3
+[2026-11-22T23:07:11] Starting full_scan benchmarks for events_b3
+[2026-11-22T23:07:12] Warm-up full_scan: 1/2, 388.770 ms
+[2026-11-22T23:07:12] Warm-up full_scan: 2/2, 372.759 ms
+[2026-11-22T23:07:13] events_b3 full_scan run=1/10, latency=388.043 ms
+[2026-11-22T23:07:13] events_b3 full_scan run=2/10, latency=385.879 ms
+[2026-11-22T23:07:13] events_b3 full_scan run=3/10, latency=447.232 ms
+[2026-11-22T23:07:14] events_b3 full_scan run=4/10, latency=388.977 ms
+[2026-11-22T23:07:14] events_b3 full_scan run=5/10, latency=384.080 ms
+[2026-11-22T23:07:15] events_b3 full_scan run=6/10, latency=370.214 ms
+[2026-11-22T23:07:15] events_b3 full_scan run=7/10, latency=405.278 ms
+[2026-11-22T23:07:15] events_b3 full_scan run=8/10, latency=383.951 ms
+[2026-11-22T23:07:16] events_b3 full_scan run=9/10, latency=386.227 ms
+[2026-11-22T23:07:16] events_b3 full_scan run=10/10, latency=371.556 ms
+[2026-11-22T23:07:16] Starting point_query benchmarks for events_b3
+[2026-11-22T23:07:16] Warm-up point_query: 1/2, 370.621 ms
+[2026-11-22T23:07:17] Warm-up point_query: 2/2, 371.786 ms
+[2026-11-22T23:07:17] events_b3 point_query run=1/10, latency=354.995 ms
+[2026-11-22T23:07:18] events_b3 point_query run=2/10, latency=357.611 ms
+[2026-11-22T23:07:18] events_b3 point_query run=3/10, latency=356.303 ms
+[2026-11-22T23:07:18] events_b3 point_query run=4/10, latency=373.386 ms
+[2026-11-22T23:07:19] events_b3 point_query run=5/10, latency=350.459 ms
+[2026-11-22T23:07:19] events_b3 point_query run=6/10, latency=356.131 ms
+[2026-11-22T23:07:19] events_b3 point_query run=7/10, latency=373.121 ms
+[2026-11-22T23:07:20] events_b3 point_query run=8/10, latency=354.804 ms
+[2026-11-22T23:07:20] events_b3 point_query run=9/10, latency=354.545 ms
+[2026-11-22T23:07:20] events_b3 point_query run=10/10, latency=357.921 ms
+[2026-11-22T23:07:20] Collecting tablet statistics for events_b3
+[2026-11-22T23:07:22] events_b3: 3 logical tablets, 9 physical replicas
+[2026-11-22T23:07:22] Detailed tablet metadata and replica health saved for events_b3
+[2026-11-22T23:07:22] Completed configuration: 3 buckets
+[2026-11-22T23:07:22] Starting configuration: 6 buckets
+[2026-11-22T23:07:22] Creating events_b6 with 6 buckets
+[2026-11-22T23:07:22] Loading data into events_b6
+[2026-11-22T23:07:23] INSERT completed for events_b6 in 1.074 seconds
+[2026-11-22T23:07:23] Load verification passed for events_b6: 1,500,000 rows
+[2026-11-22T23:07:23] Waiting for replica consistency for events_b6 (timeout: 180s)
+[2026-11-22T23:07:24] Replica consistency confirmed for events_b6: 6 logical tablets, 18 physical replicas, 0.4s
+[2026-11-22T23:07:25] Data validation passed for events_b6
+[2026-11-22T23:07:25] EXPLAIN plans collected for events_b6
+[2026-11-22T23:07:25] Starting full_scan benchmarks for events_b6
+[2026-11-22T23:07:26] Warm-up full_scan: 1/2, 402.460 ms
+[2026-11-22T23:07:26] Warm-up full_scan: 2/2, 386.401 ms
+[2026-11-22T23:07:26] events_b6 full_scan run=1/10, latency=384.877 ms
+[2026-11-22T23:07:27] events_b6 full_scan run=2/10, latency=386.242 ms
+[2026-11-22T23:07:27] events_b6 full_scan run=3/10, latency=417.938 ms
+[2026-11-22T23:07:28] events_b6 full_scan run=4/10, latency=388.717 ms
+[2026-11-22T23:07:28] events_b6 full_scan run=5/10, latency=383.721 ms
+[2026-11-22T23:07:28] events_b6 full_scan run=6/10, latency=370.774 ms
+[2026-11-22T23:07:29] events_b6 full_scan run=7/10, latency=375.002 ms
+[2026-11-22T23:07:29] events_b6 full_scan run=8/10, latency=369.113 ms
+[2026-11-22T23:07:30] events_b6 full_scan run=9/10, latency=387.430 ms
+[2026-11-22T23:07:30] events_b6 full_scan run=10/10, latency=387.021 ms
+[2026-11-22T23:07:30] Starting point_query benchmarks for events_b6
+[2026-11-22T23:07:30] Warm-up point_query: 1/2, 354.787 ms
+[2026-11-22T23:07:31] Warm-up point_query: 2/2, 354.515 ms
+[2026-11-22T23:07:31] events_b6 point_query run=1/10, latency=359.641 ms
+[2026-11-22T23:07:31] events_b6 point_query run=2/10, latency=354.791 ms
+[2026-11-22T23:07:32] events_b6 point_query run=3/10, latency=369.814 ms
+[2026-11-22T23:07:32] events_b6 point_query run=4/10, latency=367.805 ms
+[2026-11-22T23:07:32] events_b6 point_query run=5/10, latency=359.175 ms
+[2026-11-22T23:07:33] events_b6 point_query run=6/10, latency=356.777 ms
+[2026-11-22T23:07:33] events_b6 point_query run=7/10, latency=368.718 ms
+[2026-11-22T23:07:34] events_b6 point_query run=8/10, latency=354.465 ms
+[2026-11-22T23:07:34] events_b6 point_query run=9/10, latency=357.579 ms
+[2026-11-22T23:07:34] events_b6 point_query run=10/10, latency=358.745 ms
+[2026-11-22T23:07:34] Collecting tablet statistics for events_b6
+[2026-11-22T23:07:35] events_b6: 6 logical tablets, 18 physical replicas
+[2026-11-22T23:07:35] Detailed tablet metadata and replica health saved for events_b6
+[2026-11-22T23:07:35] Completed configuration: 6 buckets
+[2026-11-22T23:07:35] Starting configuration: 12 buckets
+[2026-11-22T23:07:35] Creating events_b12 with 12 buckets
+[2026-11-22T23:07:36] Loading data into events_b12
+[2026-11-22T23:07:37] INSERT completed for events_b12 in 1.106 seconds
+[2026-11-22T23:07:37] Load verification passed for events_b12: 1,500,000 rows
+[2026-11-22T23:07:37] Waiting for replica consistency for events_b12 (timeout: 180s)
+[2026-11-22T23:07:37] Replica consistency confirmed for events_b12: 12 logical tablets, 36 physical replicas, 0.3s
+[2026-11-22T23:07:38] Data validation passed for events_b12
+[2026-11-22T23:07:39] EXPLAIN plans collected for events_b12
+[2026-11-22T23:07:39] Starting full_scan benchmarks for events_b12
+[2026-11-22T23:07:39] Warm-up full_scan: 1/2, 386.990 ms
+[2026-11-22T23:07:40] Warm-up full_scan: 2/2, 389.457 ms
+[2026-11-22T23:07:40] events_b12 full_scan run=1/10, latency=385.273 ms
+[2026-11-22T23:07:41] events_b12 full_scan run=2/10, latency=401.489 ms
+[2026-11-22T23:07:41] events_b12 full_scan run=3/10, latency=385.708 ms
+[2026-11-22T23:07:41] events_b12 full_scan run=4/10, latency=372.134 ms
+[2026-11-22T23:07:42] events_b12 full_scan run=5/10, latency=387.112 ms
+[2026-11-22T23:07:42] events_b12 full_scan run=6/10, latency=384.089 ms
+[2026-11-22T23:07:42] events_b12 full_scan run=7/10, latency=404.419 ms
+[2026-11-22T23:07:43] events_b12 full_scan run=8/10, latency=370.899 ms
+[2026-11-22T23:07:43] events_b12 full_scan run=9/10, latency=398.551 ms
+[2026-11-22T23:07:44] events_b12 full_scan run=10/10, latency=372.692 ms
+[2026-11-22T23:07:44] Starting point_query benchmarks for events_b12
+[2026-11-22T23:07:44] Warm-up point_query: 1/2, 354.984 ms
+[2026-11-22T23:07:44] Warm-up point_query: 2/2, 375.128 ms
+[2026-11-22T23:07:45] events_b12 point_query run=1/10, latency=352.259 ms
+[2026-11-22T23:07:45] events_b12 point_query run=2/10, latency=355.000 ms
+[2026-11-22T23:07:45] events_b12 point_query run=3/10, latency=372.113 ms
+[2026-11-22T23:07:46] events_b12 point_query run=4/10, latency=352.430 ms
+[2026-11-22T23:07:46] events_b12 point_query run=5/10, latency=354.876 ms
+[2026-11-22T23:07:46] events_b12 point_query run=6/10, latency=354.606 ms
+[2026-11-22T23:07:47] events_b12 point_query run=7/10, latency=355.768 ms
+[2026-11-22T23:07:47] events_b12 point_query run=8/10, latency=371.444 ms
+[2026-11-22T23:07:48] events_b12 point_query run=9/10, latency=355.587 ms
+[2026-11-22T23:07:48] events_b12 point_query run=10/10, latency=357.981 ms
+[2026-11-22T23:07:48] Collecting tablet statistics for events_b12
+[2026-11-22T23:07:49] events_b12: 12 logical tablets, 36 physical replicas
+[2026-11-22T23:07:49] Detailed tablet metadata and replica health saved for events_b12
+[2026-11-22T23:07:49] Completed configuration: 12 buckets
+[2026-11-22T23:07:49] Starting configuration: 24 buckets
+[2026-11-22T23:07:49] Creating events_b24 with 24 buckets
+[2026-11-22T23:07:49] Loading data into events_b24
+[2026-11-22T23:07:51] INSERT completed for events_b24 in 1.122 seconds
+[2026-11-22T23:07:51] Load verification passed for events_b24: 1,500,000 rows
+[2026-11-22T23:07:51] Waiting for replica consistency for events_b24 (timeout: 180s)
+[2026-11-22T23:07:51] Replica consistency confirmed for events_b24: 24 logical tablets, 72 physical replicas, 0.4s
+[2026-11-22T23:07:52] Data validation passed for events_b24
+[2026-11-22T23:07:53] EXPLAIN plans collected for events_b24
+[2026-11-22T23:07:53] Starting full_scan benchmarks for events_b24
+[2026-11-22T23:07:53] Warm-up full_scan: 1/2, 385.334 ms
+[2026-11-22T23:07:54] Warm-up full_scan: 2/2, 404.060 ms
+[2026-11-22T23:07:54] events_b24 full_scan run=1/10, latency=383.986 ms
+[2026-11-22T23:07:54] events_b24 full_scan run=2/10, latency=372.107 ms
+[2026-11-22T23:07:55] events_b24 full_scan run=3/10, latency=401.634 ms
+[2026-11-22T23:07:55] events_b24 full_scan run=4/10, latency=401.034 ms
+[2026-11-22T23:07:55] events_b24 full_scan run=5/10, latency=386.919 ms
+[2026-11-22T23:07:56] events_b24 full_scan run=6/10, latency=372.911 ms
+[2026-11-22T23:07:56] events_b24 full_scan run=7/10, latency=370.969 ms
+[2026-11-22T23:07:57] events_b24 full_scan run=8/10, latency=417.665 ms
+[2026-11-22T23:07:57] events_b24 full_scan run=9/10, latency=383.053 ms
+[2026-11-22T23:07:57] events_b24 full_scan run=10/10, latency=372.251 ms
+[2026-11-22T23:07:57] Starting point_query benchmarks for events_b24
+[2026-11-22T23:07:58] Warm-up point_query: 1/2, 372.501 ms
+[2026-11-22T23:07:58] Warm-up point_query: 2/2, 352.568 ms
+[2026-11-22T23:07:58] events_b24 point_query run=1/10, latency=370.341 ms
+[2026-11-22T23:07:59] events_b24 point_query run=2/10, latency=354.949 ms
+[2026-11-22T23:07:59] events_b24 point_query run=3/10, latency=356.850 ms
+[2026-11-22T23:08:00] events_b24 point_query run=4/10, latency=371.334 ms
+[2026-11-22T23:08:00] events_b24 point_query run=5/10, latency=356.200 ms
+[2026-11-22T23:08:00] events_b24 point_query run=6/10, latency=354.890 ms
+[2026-11-22T23:08:01] events_b24 point_query run=7/10, latency=356.794 ms
+[2026-11-22T23:08:01] events_b24 point_query run=8/10, latency=369.724 ms
+[2026-11-22T23:08:01] events_b24 point_query run=9/10, latency=357.381 ms
+[2026-11-22T23:08:02] events_b24 point_query run=10/10, latency=351.828 ms
+[2026-11-22T23:08:02] Collecting tablet statistics for events_b24
+[2026-11-22T23:08:03] events_b24: 24 logical tablets, 72 physical replicas
+[2026-11-22T23:08:03] Detailed tablet metadata and replica health saved for events_b24
+[2026-11-22T23:08:03] Completed configuration: 24 buckets
+[2026-11-22T23:08:03] Starting configuration: 48 buckets
+[2026-11-22T23:08:03] Creating events_b48 with 48 buckets
+[2026-11-22T23:08:03] Loading data into events_b48
+[2026-11-22T23:08:04] INSERT completed for events_b48 in 1.241 seconds
+[2026-11-22T23:08:05] Load verification passed for events_b48: 1,500,000 rows
+[2026-11-22T23:08:05] Waiting for replica consistency for events_b48 (timeout: 180s)
+[2026-11-22T23:08:05] Replica consistency confirmed for events_b48: 48 logical tablets, 144 physical replicas, 0.4s
+[2026-11-22T23:08:06] Data validation passed for events_b48
+[2026-11-22T23:08:07] EXPLAIN plans collected for events_b48
+[2026-11-22T23:08:07] Starting full_scan benchmarks for events_b48
+[2026-11-22T23:08:07] Warm-up full_scan: 1/2, 389.448 ms
+[2026-11-22T23:08:07] Warm-up full_scan: 2/2, 387.797 ms
+[2026-11-22T23:08:08] events_b48 full_scan run=1/10, latency=372.651 ms
+[2026-11-22T23:08:08] events_b48 full_scan run=2/10, latency=388.286 ms
+[2026-11-22T23:08:09] events_b48 full_scan run=3/10, latency=386.975 ms
+[2026-11-22T23:08:09] events_b48 full_scan run=4/10, latency=372.058 ms
+[2026-11-22T23:08:09] events_b48 full_scan run=5/10, latency=371.731 ms
+[2026-11-22T23:08:10] events_b48 full_scan run=6/10, latency=372.167 ms
+[2026-11-22T23:08:10] events_b48 full_scan run=7/10, latency=372.851 ms
+[2026-11-22T23:08:10] events_b48 full_scan run=8/10, latency=386.111 ms
+[2026-11-22T23:08:11] events_b48 full_scan run=9/10, latency=372.166 ms
+[2026-11-22T23:08:11] events_b48 full_scan run=10/10, latency=385.267 ms
+[2026-11-22T23:08:11] Starting point_query benchmarks for events_b48
+[2026-11-22T23:08:12] Warm-up point_query: 1/2, 353.204 ms
+[2026-11-22T23:08:12] Warm-up point_query: 2/2, 354.815 ms
+[2026-11-22T23:08:12] events_b48 point_query run=1/10, latency=356.447 ms
+[2026-11-22T23:08:13] events_b48 point_query run=2/10, latency=387.742 ms
+[2026-11-22T23:08:13] events_b48 point_query run=3/10, latency=354.174 ms
+[2026-11-22T23:08:13] events_b48 point_query run=4/10, latency=384.042 ms
+[2026-11-22T23:08:14] events_b48 point_query run=5/10, latency=355.134 ms
+[2026-11-22T23:08:14] events_b48 point_query run=6/10, latency=369.607 ms
+[2026-11-22T23:08:15] events_b48 point_query run=7/10, latency=354.183 ms
+[2026-11-22T23:08:15] events_b48 point_query run=8/10, latency=340.457 ms
+[2026-11-22T23:08:15] events_b48 point_query run=9/10, latency=358.152 ms
+[2026-11-22T23:08:16] events_b48 point_query run=10/10, latency=353.599 ms
+[2026-11-22T23:08:16] Collecting tablet statistics for events_b48
+[2026-11-22T23:08:17] events_b48: 48 logical tablets, 144 physical replicas
+[2026-11-22T23:08:17] Detailed tablet metadata and replica health saved for events_b48
+[2026-11-22T23:08:17] Completed configuration: 48 buckets
+[2026-11-22T23:08:17] Starting configuration: 96 buckets
+[2026-11-22T23:08:17] Creating events_b96 with 96 buckets
+[2026-11-22T23:08:17] Loading data into events_b96
+[2026-11-22T23:08:19] INSERT completed for events_b96 in 1.529 seconds
+[2026-11-22T23:08:19] Load verification passed for events_b96: 1,500,000 rows
+[2026-11-22T23:08:19] Waiting for replica consistency for events_b96 (timeout: 180s)
+[2026-11-22T23:08:19] Replica consistency confirmed for events_b96: 96 logical tablets, 288 physical replicas, 0.4s
+[2026-11-22T23:08:20] Data validation passed for events_b96
+[2026-11-22T23:08:21] EXPLAIN plans collected for events_b96
+[2026-11-22T23:08:21] Starting full_scan benchmarks for events_b96
+[2026-11-22T23:08:21] Warm-up full_scan: 1/2, 385.294 ms
+[2026-11-22T23:08:22] Warm-up full_scan: 2/2, 373.885 ms
+[2026-11-22T23:08:22] events_b96 full_scan run=1/10, latency=387.878 ms
+[2026-11-22T23:08:22] events_b96 full_scan run=2/10, latency=387.217 ms
+[2026-11-22T23:08:23] events_b96 full_scan run=3/10, latency=371.219 ms
+[2026-11-22T23:08:23] events_b96 full_scan run=4/10, latency=371.785 ms
+[2026-11-22T23:08:24] events_b96 full_scan run=5/10, latency=404.091 ms
+[2026-11-22T23:08:24] events_b96 full_scan run=6/10, latency=382.666 ms
+[2026-11-22T23:08:24] events_b96 full_scan run=7/10, latency=386.035 ms
+[2026-11-22T23:08:25] events_b96 full_scan run=8/10, latency=368.893 ms
+[2026-11-22T23:08:25] events_b96 full_scan run=9/10, latency=386.725 ms
+[2026-11-22T23:08:25] events_b96 full_scan run=10/10, latency=387.221 ms
+[2026-11-22T23:08:25] Starting point_query benchmarks for events_b96
+[2026-11-22T23:08:26] Warm-up point_query: 1/2, 356.850 ms
+[2026-11-22T23:08:26] Warm-up point_query: 2/2, 358.750 ms
+[2026-11-22T23:08:27] events_b96 point_query run=1/10, latency=368.660 ms
+[2026-11-22T23:08:27] events_b96 point_query run=2/10, latency=386.765 ms
+[2026-11-22T23:08:27] events_b96 point_query run=3/10, latency=357.871 ms
+[2026-11-22T23:08:28] events_b96 point_query run=4/10, latency=355.193 ms
+[2026-11-22T23:08:28] events_b96 point_query run=5/10, latency=356.562 ms
+[2026-11-22T23:08:28] events_b96 point_query run=6/10, latency=386.862 ms
+[2026-11-22T23:08:29] events_b96 point_query run=7/10, latency=353.687 ms
+[2026-11-22T23:08:29] events_b96 point_query run=8/10, latency=356.831 ms
+[2026-11-22T23:08:29] events_b96 point_query run=9/10, latency=369.715 ms
+[2026-11-22T23:08:30] events_b96 point_query run=10/10, latency=354.681 ms
+[2026-11-22T23:08:30] Collecting tablet statistics for events_b96
+[2026-11-22T23:08:31] events_b96: 96 logical tablets, 288 physical replicas
+[2026-11-22T23:08:31] Detailed tablet metadata and replica health saved for events_b96
+[2026-11-22T23:08:31] Completed configuration: 96 buckets
+[2026-11-22T23:08:31] Starting configuration: 192 buckets
+[2026-11-22T23:08:31] Creating events_b192 with 192 buckets
+[2026-11-22T23:08:31] Loading data into events_b192
+[2026-11-22T23:08:33] INSERT completed for events_b192 in 1.805 seconds
+[2026-11-22T23:08:34] Load verification passed for events_b192: 1,500,000 rows
+[2026-11-22T23:08:34] Waiting for replica consistency for events_b192 (timeout: 180s)
+[2026-11-22T23:08:34] Replica consistency confirmed for events_b192: 192 logical tablets, 576 physical replicas, 0.4s
+[2026-11-22T23:08:35] Data validation passed for events_b192
+[2026-11-22T23:08:36] EXPLAIN plans collected for events_b192
+[2026-11-22T23:08:36] Starting full_scan benchmarks for events_b192
+[2026-11-22T23:08:36] Warm-up full_scan: 1/2, 403.342 ms
+[2026-11-22T23:08:36] Warm-up full_scan: 2/2, 402.733 ms
+[2026-11-22T23:08:37] events_b192 full_scan run=1/10, latency=429.709 ms
+[2026-11-22T23:08:37] events_b192 full_scan run=2/10, latency=402.394 ms
+[2026-11-22T23:08:38] events_b192 full_scan run=3/10, latency=389.674 ms
+[2026-11-22T23:08:38] events_b192 full_scan run=4/10, latency=401.567 ms
+[2026-11-22T23:08:38] events_b192 full_scan run=5/10, latency=385.744 ms
+[2026-11-22T23:08:39] events_b192 full_scan run=6/10, latency=386.430 ms
+[2026-11-22T23:08:39] events_b192 full_scan run=7/10, latency=403.426 ms
+[2026-11-22T23:08:40] events_b192 full_scan run=8/10, latency=388.135 ms
+[2026-11-22T23:08:40] events_b192 full_scan run=9/10, latency=375.642 ms
+[2026-11-22T23:08:40] events_b192 full_scan run=10/10, latency=398.588 ms
+[2026-11-22T23:08:40] Starting point_query benchmarks for events_b192
+[2026-11-22T23:08:41] Warm-up point_query: 1/2, 354.462 ms
+[2026-11-22T23:08:41] Warm-up point_query: 2/2, 372.355 ms
+[2026-11-22T23:08:41] events_b192 point_query run=1/10, latency=370.787 ms
+[2026-11-22T23:08:42] events_b192 point_query run=2/10, latency=370.433 ms
+[2026-11-22T23:08:42] events_b192 point_query run=3/10, latency=356.120 ms
+[2026-11-22T23:08:42] events_b192 point_query run=4/10, latency=356.698 ms
+[2026-11-22T23:08:43] events_b192 point_query run=5/10, latency=357.953 ms
+[2026-11-22T23:08:43] events_b192 point_query run=6/10, latency=367.022 ms
+[2026-11-22T23:08:44] events_b192 point_query run=7/10, latency=352.305 ms
+[2026-11-22T23:08:44] events_b192 point_query run=8/10, latency=356.986 ms
+[2026-11-22T23:08:44] events_b192 point_query run=9/10, latency=353.676 ms
+[2026-11-22T23:08:45] events_b192 point_query run=10/10, latency=384.172 ms
+[2026-11-22T23:08:45] Collecting tablet statistics for events_b192
+[2026-11-22T23:08:46] events_b192: 192 logical tablets, 576 physical replicas
+[2026-11-22T23:08:46] Detailed tablet metadata and replica health saved for events_b192
+[2026-11-22T23:08:46] Completed configuration: 192 buckets
+[2026-11-22T23:08:46] Starting configuration: 384 buckets
+[2026-11-22T23:08:46] Creating events_b384 with 384 buckets
+[2026-11-22T23:08:46] Loading data into events_b384
+[2026-11-22T23:08:49] INSERT completed for events_b384 in 2.505 seconds
+[2026-11-22T23:08:49] Load verification passed for events_b384: 1,500,000 rows
+[2026-11-22T23:08:49] Waiting for replica consistency for events_b384 (timeout: 180s)
+[2026-11-22T23:08:50] Replica consistency confirmed for events_b384: 384 logical tablets, 1152 physical replicas, 0.4s
+[2026-11-22T23:08:50] Data validation passed for events_b384
+[2026-11-22T23:08:51] EXPLAIN plans collected for events_b384
+[2026-11-22T23:08:51] Starting full_scan benchmarks for events_b384
+[2026-11-22T23:08:51] Warm-up full_scan: 1/2, 404.298 ms
+[2026-11-22T23:08:52] Warm-up full_scan: 2/2, 399.473 ms
+[2026-11-22T23:08:52] events_b384 full_scan run=1/10, latency=403.673 ms
+[2026-11-22T23:08:53] events_b384 full_scan run=2/10, latency=385.594 ms
+[2026-11-22T23:08:53] events_b384 full_scan run=3/10, latency=385.658 ms
+[2026-11-22T23:08:53] events_b384 full_scan run=4/10, latency=445.370 ms
+[2026-11-22T23:08:54] events_b384 full_scan run=5/10, latency=389.083 ms
+[2026-11-22T23:08:54] events_b384 full_scan run=6/10, latency=388.043 ms
+[2026-11-22T23:08:55] events_b384 full_scan run=7/10, latency=385.988 ms
+[2026-11-22T23:08:55] events_b384 full_scan run=8/10, latency=371.865 ms
+[2026-11-22T23:08:55] events_b384 full_scan run=9/10, latency=415.821 ms
+[2026-11-22T23:08:56] events_b384 full_scan run=10/10, latency=418.110 ms
+[2026-11-22T23:08:56] Starting point_query benchmarks for events_b384
+[2026-11-22T23:08:56] Warm-up point_query: 1/2, 388.863 ms
+[2026-11-22T23:08:57] Warm-up point_query: 2/2, 370.284 ms
+[2026-11-22T23:08:57] events_b384 point_query run=1/10, latency=369.917 ms
+[2026-11-22T23:08:57] events_b384 point_query run=2/10, latency=447.318 ms
+[2026-11-22T23:08:58] events_b384 point_query run=3/10, latency=431.412 ms
+[2026-11-22T23:08:58] events_b384 point_query run=4/10, latency=403.178 ms
+[2026-11-22T23:08:59] events_b384 point_query run=5/10, latency=401.386 ms
+[2026-11-22T23:08:59] events_b384 point_query run=6/10, latency=369.202 ms
+[2026-11-22T23:08:59] events_b384 point_query run=7/10, latency=400.995 ms
+[2026-11-22T23:09:00] events_b384 point_query run=8/10, latency=372.606 ms
+[2026-11-22T23:09:00] events_b384 point_query run=9/10, latency=386.472 ms
+[2026-11-22T23:09:01] events_b384 point_query run=10/10, latency=375.285 ms
+[2026-11-22T23:09:01] Collecting tablet statistics for events_b384
+[2026-11-22T23:09:02] events_b384: 384 logical tablets, 1152 physical replicas
+[2026-11-22T23:09:02] Detailed tablet metadata and replica health saved for events_b384
+[2026-11-22T23:09:02] Completed configuration: 384 buckets
+[2026-11-22T23:09:02] Summary statistics generated
+[2026-11-22T23:09:02] E1 experiment completed successfully
+[2026-11-22T23:09:02] Results saved in: C:\Users\Harvey\workspace\vub\sdms\experiments\exp1\results\20261122-230653

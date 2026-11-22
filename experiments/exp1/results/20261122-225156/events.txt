@@ -1,0 +1,112 @@
+[2026-11-22T22:51:56] Starting E1 - Bucket count experiment
+[2026-11-22T22:51:56] Checking Docker Compose environment
+[2026-11-22T22:51:56] Active backends: ['starrocks-be-0', 'starrocks-be-1', 'starrocks-be-2']
+[2026-11-22T22:51:56] Validating source dataset
+[2026-11-22T22:51:56] Source dataset validated: 1,500,000 rows
+[2026-11-22T22:51:56] Starting configuration: 1 buckets
+[2026-11-22T22:51:56] Creating events_b1 with 1 buckets
+[2026-11-22T22:51:57] Loading data into events_b1
+[2026-11-22T22:51:58] Loaded events_b1 in 1.462 seconds
+[2026-11-22T22:51:58] Waiting for replica consistency for events_b1 (timeout: 180s)
+[2026-11-22T22:51:59] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:04] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:09] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:15] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:20] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:26] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:31] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:36] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:42] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:47] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:52] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:52:58] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:03] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:09] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:14] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:19] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:25] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:30] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:35] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:41] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:46] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:51] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:53:57] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:54:02] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:54:07] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:54:13] Replica consistency confirmed for events_b1: 1 logical tablets, 3 replicas, 1,500,000 rows, 134.4s
+[2026-11-22T22:54:14] Data validation passed for events_b1
+[2026-11-22T22:54:14] EXPLAIN plans collected for events_b1
+[2026-11-22T22:54:14] Starting full_scan benchmarks for events_b1
+[2026-11-22T22:54:15] Warm-up full_scan: 1/2, 454.362 ms
+[2026-11-22T22:54:15] Warm-up full_scan: 2/2, 434.433 ms
+[2026-11-22T22:54:16] events_b1 full_scan run=1/10, latency=433.643 ms
+[2026-11-22T22:54:16] events_b1 full_scan run=2/10, latency=415.953 ms
+[2026-11-22T22:54:17] events_b1 full_scan run=3/10, latency=415.138 ms
+[2026-11-22T22:54:17] events_b1 full_scan run=4/10, latency=399.535 ms
+[2026-11-22T22:54:17] events_b1 full_scan run=5/10, latency=417.897 ms
+[2026-11-22T22:54:18] events_b1 full_scan run=6/10, latency=402.285 ms
+[2026-11-22T22:54:18] events_b1 full_scan run=7/10, latency=420.138 ms
+[2026-11-22T22:54:19] events_b1 full_scan run=8/10, latency=417.521 ms
+[2026-11-22T22:54:19] events_b1 full_scan run=9/10, latency=417.219 ms
+[2026-11-22T22:54:19] events_b1 full_scan run=10/10, latency=432.532 ms
+[2026-11-22T22:54:19] Starting point_query benchmarks for events_b1
+[2026-11-22T22:54:20] Warm-up point_query: 1/2, 371.126 ms
+[2026-11-22T22:54:20] Warm-up point_query: 2/2, 386.271 ms
+[2026-11-22T22:54:21] events_b1 point_query run=1/10, latency=355.355 ms
+[2026-11-22T22:54:21] events_b1 point_query run=2/10, latency=368.801 ms
+[2026-11-22T22:54:21] events_b1 point_query run=3/10, latency=369.613 ms
+[2026-11-22T22:54:22] events_b1 point_query run=4/10, latency=371.872 ms
+[2026-11-22T22:54:22] events_b1 point_query run=5/10, latency=354.591 ms
+[2026-11-22T22:54:22] events_b1 point_query run=6/10, latency=370.284 ms
+[2026-11-22T22:54:23] events_b1 point_query run=7/10, latency=387.174 ms
+[2026-11-22T22:54:23] events_b1 point_query run=8/10, latency=356.551 ms
+[2026-11-22T22:54:24] events_b1 point_query run=9/10, latency=371.072 ms
+[2026-11-22T22:54:24] events_b1 point_query run=10/10, latency=367.955 ms
+[2026-11-22T22:54:24] Collecting tablet statistics for events_b1
+[2026-11-22T22:54:25] events_b1: 1 logical tablets, 3 physical replicas
+[2026-11-22T22:54:25] Detailed replica metadata saved for events_b1
+[2026-11-22T22:54:25] Completed configuration: 1 buckets
+[2026-11-22T22:54:25] Starting configuration: 3 buckets
+[2026-11-22T22:54:25] Creating events_b3 with 3 buckets
+[2026-11-22T22:54:25] Loading data into events_b3
+[2026-11-22T22:54:26] Loaded events_b3 in 1.202 seconds
+[2026-11-22T22:54:26] Waiting for replica consistency for events_b3 (timeout: 180s)
+[2026-11-22T22:54:27] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:54:32] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:54:37] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:54:43] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:54:48] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:54:53] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:54:59] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:04] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:09] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:15] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:20] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:26] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:31] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:36] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:42] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:47] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:52] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:55:58] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:03] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:09] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:14] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:19] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:25] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:30] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:35] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:41] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:46] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:51] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:56:57] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:57:02] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:57:07] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:57:13] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:57:18] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:57:24] Replica synchronization in progress for events_b3: 3/3 tablets detected
+[2026-11-22T22:57:29] ERROR: Replica consistency timeout for events_b3 after 180s.
+Expected 3 tablets, 3 replicas per tablet, and 1,500,000 total rows.
+Tablet 15021: BE 10002: 0 rows / NORMAL, BE 10001: 0 rows / NORMAL, BE 10003: 0 rows / NORMAL
+Tablet 15025: BE 10002: 0 rows / NORMAL, BE 10001: 0 rows / NORMAL, BE 10003: 0 rows / NORMAL
+Tablet 15029: BE 10002: 0 rows / NORMAL, BE 10001: 0 rows / NORMAL, BE 10003: 0 rows / NORMAL

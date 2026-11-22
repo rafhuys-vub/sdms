@@ -1,0 +1,10 @@
+bucket_count,table,load_time_seconds
+1,events_b1,1.194
+3,events_b3,1.121
+6,events_b6,1.074
+12,events_b12,1.106
+24,events_b24,1.122
+48,events_b48,1.241
+96,events_b96,1.529
+192,events_b192,1.805
+384,events_b384,2.505

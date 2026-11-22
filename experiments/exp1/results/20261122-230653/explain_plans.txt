@@ -1,0 +1,695 @@
+
+
+===========================================================================
+TABLE: events_b1
+BUCKETS: 1
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  colocate exec groups: ExecGroup{groupId=0, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  1:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b1
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b1
+     tabletRatio=1/1
+     tabletList=15064
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b1
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b1
+     tabletRatio=1/1
+     tabletList=15064
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b3
+BUCKETS: 3
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b3
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b3
+     tabletRatio=3/3
+     tabletList=15074,15078,15082
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b3
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b3
+     tabletRatio=1/3
+     tabletList=15074
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b6
+BUCKETS: 6
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b6
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b6
+     tabletRatio=6/6
+     tabletList=15091,15095,15099,15103,15107,15111
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b6
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b6
+     tabletRatio=1/6
+     tabletList=15103
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b12
+BUCKETS: 12
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b12
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b12
+     tabletRatio=12/12
+     tabletList=15120,15124,15128,15132,15136,15140,15144,15148,15152,15156 ...
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b12
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b12
+     tabletRatio=1/12
+     tabletList=15156
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b24
+BUCKETS: 24
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b24
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b24
+     tabletRatio=24/24
+     tabletList=15173,15177,15181,15185,15189,15193,15197,15201,15205,15209 ...
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b24
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b24
+     tabletRatio=1/24
+     tabletList=15257
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b48
+BUCKETS: 48
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b48
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b48
+     tabletRatio=48/48
+     tabletList=15279,15283,15287,15291,15295,15299,15303,15307,15311,15315 ...
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b48
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b48
+     tabletRatio=1/48
+     tabletList=15459
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b96
+BUCKETS: 96
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b96
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b96
+     tabletRatio=96/96
+     tabletList=15477,15481,15485,15489,15493,15497,15501,15505,15509,15513 ...
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b96
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b96
+     tabletRatio=1/96
+     tabletList=15657
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b192
+BUCKETS: 192
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b192
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b192
+     tabletRatio=192/192
+     tabletList=15866,15870,15874,15878,15882,15886,15890,15894,15898,15902 ...
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b192
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b192
+     tabletRatio=1/192
+     tabletList=16046
+     cardinality=750000
+     avgRowSize=2.0
+
+
+===========================================================================
+TABLE: events_b384
+BUCKETS: 384
+===========================================================================
+
+--- full_scan ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:4: category | 6: count | 7: sum
+  PARTITION: UNPARTITIONED
+
+  RESULT SINK
+
+  4:EXCHANGE
+
+PLAN FRAGMENT 1
+ OUTPUT EXPRS:
+  PARTITION: HASH_PARTITIONED: 4: category
+
+  STREAM DATA SINK
+    EXCHANGE ID: 04
+    UNPARTITIONED
+
+  3:AGGREGATE (merge finalize)
+  |  output: count(6: count), sum(7: sum)
+  |  group by: 4: category
+  |  
+  2:EXCHANGE
+
+PLAN FRAGMENT 2
+ OUTPUT EXPRS:
+  colocate exec groups: ExecGroup{groupId=1, nodeIds=[0, 1]}
+  PARTITION: RANDOM
+
+  STREAM DATA SINK
+    EXCHANGE ID: 02
+    HASH_PARTITIONED: 4: category
+
+  1:AGGREGATE (update serialize)
+  |  STREAMING
+  |  output: count(*), sum(5: amount)
+  |  group by: 4: category
+  |  
+  0:OlapScanNode
+     TABLE: events_b384
+     PREAGGREGATION: ON
+     partitions=1/1
+     rollup: events_b384
+     tabletRatio=384/384
+     tabletList=16639,16643,16647,16651,16655,16659,16663,16667,16671,16675 ...
+     cardinality=1500000
+     avgRowSize=2.0
+
+--- point_query ---
+Explain String
+PLAN FRAGMENT 0
+ OUTPUT EXPRS:6: count | 7: sum
+  PARTITION: RANDOM
+
+  RESULT SINK
+
+  2:AGGREGATE (update finalize)
+  |  output: count(*), sum(5: amount)
+  |  group by: 
+  |  
+  1:Project
+  |  <slot 5> : 5: amount
+  |  
+  0:OlapScanNode
+     TABLE: events_b384
+     PREAGGREGATION: ON
+     PREDICATES: 2: user_id = 12345
+     partitions=1/1
+     rollup: events_b384
+     tabletRatio=1/384
+     tabletList=17587
+     cardinality=750000
+     avgRowSize=2.0

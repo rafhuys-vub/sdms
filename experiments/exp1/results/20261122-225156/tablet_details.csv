@@ -1,0 +1,4 @@
+bucket_count,table,tablet_id,replica_id,backend_id,replica_count,row_count,data_size,state,row_count_consistent
+1,events_b1,15008,15010,10001,3,1500000,602.8KB,NORMAL,True
+1,events_b1,15008,15009,10002,3,1500000,602.8KB,NORMAL,True
+1,events_b1,15008,15011,10003,3,1500000,602.8KB,NORMAL,True

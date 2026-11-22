@@ -1,0 +1,43 @@
+[2026-11-22T22:58:38] Starting E1 - Bucket count experiment
+[2026-11-22T22:58:38] Checking Docker Compose environment
+[2026-11-22T22:58:39] Active backends: ['starrocks-be-0', 'starrocks-be-1', 'starrocks-be-2']
+[2026-11-22T22:58:39] Validating source dataset
+[2026-11-22T22:58:39] Source dataset validated: 1,500,000 rows
+[2026-11-22T22:58:39] Starting configuration: 1 buckets
+[2026-11-22T22:58:39] Creating events_b1 with 1 buckets
+[2026-11-22T22:58:39] Loading data into events_b1
+[2026-11-22T22:58:41] Loaded events_b1 in 1.293 seconds
+[2026-11-22T22:58:41] Waiting for replica consistency for events_b1 (timeout: 180s)
+[2026-11-22T22:58:41] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:58:46] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:58:52] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:58:57] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:02] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:08] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:13] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:19] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:24] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:29] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:35] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:40] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:45] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:51] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T22:59:56] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:01] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:07] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:12] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:18] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:23] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:28] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:34] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:39] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:44] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:50] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:00:55] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:00] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:06] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:11] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:16] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:22] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:27] Replica synchronization in progress for events_b1: 1/1 tablets detected
+[2026-11-22T23:01:29] Experiment interrupted by user
